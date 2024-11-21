@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const existingProductIndex = products.findIndex(p => p.name.toLowerCase() === product.name.toLowerCase());
 
         if (existingProductIndex !== -1) {
-            // Si el producto existe, reemplazar el producto
+            // Si el producto existe, reemplazar el producto por completo (no solo la cantidad)
             products[existingProductIndex] = product;
         } else {
             // Si el producto no existe, agregarlo
