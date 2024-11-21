@@ -1,70 +1,156 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* Reset de estilos básicos */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
+    box-sizing: border-box;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
+/* Fondo general */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0d0d0d, #222222);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    width: 80%;
+    max-width: 1000px;
+    backdrop-filter: blur(10px);
+}
+
+/* Título */
+h1 {
+    font-size: 2.5rem;
     text-align: center;
-    padding: 1em 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
 }
 
-main {
-    padding: 1em;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-h1, h2 {
-    margin: 0.5em 0;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1em;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 8px;
-    text-align: left;
-}
-
+/* Estilo para el formulario */
 form {
     display: flex;
     flex-direction: column;
-    background-color: white;
-    padding: 1em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-form label {
-    margin-top: 0.5em;
+/* Inputs */
+input[type="text"], input[type="number"] {
+    background: #333;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
 }
 
-form input, form button {
-    padding: 0.5em;
-    margin-top: 0.5em;
+input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+    border: 2px solid #00eaff;
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.8);
 }
 
-form button {
-    background-color: #4CAF50;
+/* Botón de agregar */
+button[type="submit"] {
+    background: linear-gradient(135deg, #ff0066, #ff6600);
     color: white;
     border: none;
+    padding: 15px;
+    font-size: 1.5rem;
+    border-radius: 10px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-form button:hover {
-    background-color: #45a049;
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #ff6600, #ff0066);
+    transform: scale(1.05);
+}
+
+/* Tabla de productos */
+table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+th {
+    background-color: #222;
+    color: #00eaff;
+}
+
+td {
+    background-color: #333;
+    border-radius: 10px;
+}
+
+td button {
+    background-color: #ff0066;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+td button:hover {
+    background-color: #ff6600;
+    transform: scale(1.1);
+}
+
+/* Animación de transición */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+tr {
+    animation: slide-in 0.5s ease-out;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input[type="text"], input[type="number"], button[type="submit"] {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 1rem;
+    }
 }
