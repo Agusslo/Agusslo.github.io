@@ -108,6 +108,7 @@ table {
     max-height: 300px;  /* Limitar la altura de la tabla */
     display: block; /* Hacer la tabla un bloque para permitir desplazamiento */
     margin-bottom: 20px; /* Espacio debajo de la tabla */
+    overflow-x: auto;  /* Desplazamiento horizontal */
 }
 
 /* Estilo de las celdas */
@@ -158,6 +159,7 @@ table {
     display: block;
     max-height: 300px;
     overflow-y: auto;
+    overflow-x: auto;  /* Desplazamiento horizontal */
 }
 
 /* Animación de aparición suave */
