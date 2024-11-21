@@ -27,12 +27,14 @@ body {
     max-width: 900px;
     border: 1px solid #ddd;
     text-align: center; /* Centrado de texto */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaciado entre elementos */
 }
 
 /* Título */
 h1 {
     font-size: 2.5rem;
-    margin-bottom: 30px;
     color: #007bff;
     letter-spacing: 2px;
     font-weight: 600;
@@ -44,6 +46,10 @@ form {
     flex-direction: column;
     gap: 20px;
     align-items: center;  /* Centrado de los elementos dentro del formulario */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Inputs */
@@ -77,6 +83,7 @@ button[type="submit"] {
     text-transform: uppercase;
     letter-spacing: 1px;
     width: 50%;  /* Ajuste de ancho */
+    margin-top: 20px; /* Espacio entre inputs y el botón */
 }
 
 button[type="submit"]:hover {
