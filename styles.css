@@ -42,7 +42,8 @@ h1 {
     letter-spacing: 2px;
     font-weight: 600;
     margin-left: 30px; /* Separación a la izquierda */
-    margin-bottom: 40px; /* Aumenté el espacio debajo del título */
+    margin-bottom: 50px; /* Mayor separación debajo del título */
+    text-align: left; /* Opcional: Alinear el texto a la izquierda */
 }
 
 /* Estilo para el formulario */
