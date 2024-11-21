@@ -41,6 +41,7 @@ h1 {
     color: #007bff;
     letter-spacing: 2px;
     font-weight: 600;
+    margin-left: 20px; /* Separación más a la izquierda */
 }
 
 /* Estilo para el formulario */
@@ -105,6 +106,7 @@ table {
     overflow-y: auto;
     max-height: 300px;  /* Limitar la altura de la tabla */
     margin-bottom: 20px; /* Espacio debajo de la tabla */
+    display: block; /* Hacer la tabla un bloque para permitir desplazamiento */
 }
 
 th, td {
