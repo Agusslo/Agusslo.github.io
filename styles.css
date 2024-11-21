@@ -12,9 +12,10 @@ body {
     color: #333;
     display: flex;
     justify-content: center;  /* Centrado horizontal */
-    align-items: center;  /* Centrado vertical */
+    align-items: flex-start;  /* Centrado vertical arriba */
     height: 100vh;
-    padding: 20px;
+    padding: 40px;
+    overflow: hidden; /* Evita que la página se desborde */
 }
 
 /* Contenedor principal */
@@ -29,7 +30,9 @@ body {
     text-align: center; /* Centrado de texto */
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Espaciado entre elementos */
+    gap: 40px; /* Espaciado entre elementos */
+    max-height: 80vh;  /* Limitar la altura */
+    overflow: auto;  /* Desplazamiento si es necesario */
 }
 
 /* Título */
@@ -44,9 +47,9 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     align-items: center;  /* Centrado de los elementos dentro del formulario */
-    padding: 20px;
+    padding: 25px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -56,12 +59,13 @@ form {
 input[type="text"], input[type="number"] {
     background: #f9f9f9;
     border: 2px solid #ddd;
-    padding: 15px;
+    padding: 12px;
     font-size: 1rem;
     color: #333;
     border-radius: 8px;
     transition: all 0.3s ease;
     width: 80%;  /* Ajuste de ancho */
+    max-width: 400px;  /* Ancho máximo */
 }
 
 input[type="text"]:focus, input[type="number"]:focus {
@@ -75,14 +79,15 @@ button[type="submit"] {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 15px;
+    padding: 12px;
     font-size: 1.2rem;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    width: 50%;  /* Ajuste de ancho */
+    width: 60%;  /* Ajuste de ancho */
+    max-width: 300px; /* Ancho máximo */
     margin-top: 20px; /* Espacio entre inputs y el botón */
 }
 
@@ -96,12 +101,14 @@ table {
     width: 100%;
     margin-top: 40px;
     border-collapse: collapse;
+    overflow-y: auto;  /* Desplazamiento si la tabla se llena */
+    max-height: 300px;  /* Limitar la altura de la tabla */
 }
 
 th, td {
     padding: 15px;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #555;
 }
 
