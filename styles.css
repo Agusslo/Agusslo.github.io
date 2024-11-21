@@ -14,7 +14,7 @@ body {
     justify-content: center;  /* Centrado horizontal */
     align-items: flex-start;  /* Centrado vertical arriba */
     height: 100vh;
-    padding: 40px;
+    padding: 20px;
     overflow: hidden; /* Evita que la página se desborde */
 }
 
@@ -25,19 +25,19 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 900px;
+    max-width: 800px;
     border: 1px solid #ddd;
     text-align: center; /* Centrado de texto */
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Espaciado entre elementos */
+    gap: 30px; /* Espaciado entre elementos */
     max-height: 80vh;  /* Limitar la altura */
     overflow: auto;  /* Desplazamiento si es necesario */
 }
 
 /* Título */
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #007bff;
     letter-spacing: 2px;
     font-weight: 600;
@@ -47,12 +47,13 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
     align-items: center;  /* Centrado de los elementos dentro del formulario */
-    padding: 25px;
+    padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;  /* Asegura que ocupe el ancho completo */
 }
 
 /* Inputs */
@@ -63,9 +64,9 @@ input[type="text"], input[type="number"] {
     font-size: 1rem;
     color: #333;
     border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
     transition: all 0.3s ease;
-    width: 80%;  /* Ajuste de ancho */
-    max-width: 400px;  /* Ancho máximo */
 }
 
 input[type="text"]:focus, input[type="number"]:focus {
@@ -86,9 +87,9 @@ button[type="submit"] {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    width: 60%;  /* Ajuste de ancho */
-    max-width: 300px; /* Ancho máximo */
-    margin-top: 20px; /* Espacio entre inputs y el botón */
+    width: 80%;
+    max-width: 400px;
+    margin-top: 15px;
 }
 
 button[type="submit"]:hover {
@@ -99,10 +100,11 @@ button[type="submit"]:hover {
 /* Tabla de productos */
 table {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
     border-collapse: collapse;
-    overflow-y: auto;  /* Desplazamiento si la tabla se llena */
+    overflow-y: auto;
     max-height: 300px;  /* Limitar la altura de la tabla */
+    margin-bottom: 20px; /* Espacio debajo de la tabla */
 }
 
 th, td {
@@ -168,7 +170,7 @@ tr {
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     input[type="text"], input[type="number"], button[type="submit"] {
