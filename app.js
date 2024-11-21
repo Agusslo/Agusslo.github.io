@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const existingProductIndex = products.findIndex(p => p.name.toLowerCase() === product.name.toLowerCase());
 
         if (existingProductIndex !== -1) {
-            // Si el producto existe, actualizar su cantidad
-            products[existingProductIndex].quantity += product.quantity;
+            // Si el producto existe, reemplazar el producto
+            products[existingProductIndex] = product;
         } else {
             // Si el producto no existe, agregarlo
             products.push(product);
