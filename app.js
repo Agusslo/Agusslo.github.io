@@ -56,7 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         const productName = productNameInput.value.trim();
-        const productQuantity = parseInt(productQuantityInput.value.trim());
+        let productQuantity = parseInt(productQuantityInput.value.trim());
+
+        // Validar que la cantidad no sea negativa
+        if (productQuantity < 0) {
+            alert("La cantidad no puede ser negativa.");
+            return;
+        }
 
         if (productName && !isNaN(productQuantity)) {
             const product = { name: productName, quantity: productQuantity };
