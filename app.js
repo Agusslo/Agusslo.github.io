@@ -10,10 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
         products.forEach(product => addProductToTable(product));
     }
 
-    // Guardar producto en localStorage
+    // Guardar o actualizar el producto en localStorage
     function saveProduct(product) {
-        const products = JSON.parse(localStorage.getItem('products')) || [];
-        products.push(product);
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+
+        // Verificar si el producto ya existe
+        const existingProductIndex = products.findIndex(p => p.name.toLowerCase() === product.name.toLowerCase());
+
+        if (existingProductIndex !== -1) {
+            // Si el producto existe, actualizar su cantidad
+            products[existingProductIndex].quantity += product.quantity;
+        } else {
+            // Si el producto no existe, agregarlo
+            products.push(product);
+        }
+
         localStorage.setItem('products', JSON.stringify(products));
     }
 
@@ -47,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Eliminar producto de localStorage
     function removeProductFromStorage(productName) {
         let products = JSON.parse(localStorage.getItem('products')) || [];
-        products = products.filter(product => product.name !== productName);
+        products = products.filter(product => product.name.toLowerCase() !== productName.toLowerCase());
         localStorage.setItem('products', JSON.stringify(products));
     }
 
