@@ -11,8 +11,8 @@ body {
     background-color: #f2f2f2;
     color: #333;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;  /* Centrado horizontal */
+    align-items: center;  /* Centrado vertical */
     height: 100vh;
     padding: 20px;
 }
@@ -26,12 +26,12 @@ body {
     width: 100%;
     max-width: 900px;
     border: 1px solid #ddd;
+    text-align: center; /* Centrado de texto */
 }
 
 /* Título */
 h1 {
     font-size: 2.5rem;
-    text-align: center;
     margin-bottom: 30px;
     color: #007bff;
     letter-spacing: 2px;
@@ -43,6 +43,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;  /* Centrado de los elementos dentro del formulario */
 }
 
 /* Inputs */
@@ -54,6 +55,7 @@ input[type="text"], input[type="number"] {
     color: #333;
     border-radius: 8px;
     transition: all 0.3s ease;
+    width: 80%;  /* Ajuste de ancho */
 }
 
 input[type="text"]:focus, input[type="number"]:focus {
@@ -74,6 +76,7 @@ button[type="submit"] {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    width: 50%;  /* Ajuste de ancho */
 }
 
 button[type="submit"]:hover {
