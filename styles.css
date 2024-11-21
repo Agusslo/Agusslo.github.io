@@ -15,7 +15,7 @@ body {
     align-items: flex-start;  /* Centrado vertical arriba */
     height: 100vh;
     padding: 20px;
-    overflow: hidden; /* Evita que la página se desborde */
+    overflow-x: hidden; /* Evita que la página se desborde horizontalmente */
 }
 
 /* Contenedor principal */
@@ -42,7 +42,7 @@ h1 {
     letter-spacing: 2px;
     font-weight: 600;
     margin-left: 30px; /* Separación a la izquierda */
-    margin-bottom: 30px; /* Aumenté el espacio debajo del título */
+    margin-bottom: 40px; /* Aumenté el espacio debajo del título */
 }
 
 /* Estilo para el formulario */
@@ -104,11 +104,11 @@ table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
-    overflow-y: auto;
     max-height: 300px;  /* Limitar la altura de la tabla */
-    display: block; /* Hacer la tabla un bloque para permitir desplazamiento */
+    overflow-y: auto;  /* Solo scroll vertical */
+    overflow-x: hidden;  /* Eliminar scroll horizontal */
+    display: block; /* Necesario para forzar el scroll vertical */
     margin-bottom: 20px; /* Espacio debajo de la tabla */
-    overflow-x: hidden;  /* Eliminar scrollbar horizontal */
 }
 
 /* Estilo de las celdas */
