@@ -30,29 +30,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Agregar producto a la tabla
     function addProductToTable(product) {
-        const row = document.createElement('tr');
-        const nameCell = document.createElement('td');
-        const quantityCell = document.createElement('td');
-        const actionsCell = document.createElement('td');
+        // Verificar si el producto ya existe en la tabla antes de agregarlo
+        const existingRow = [...productTableBody.rows].find(row => row.cells[0].textContent.toLowerCase() === product.name.toLowerCase());
 
-        nameCell.textContent = product.name;
-        quantityCell.textContent = product.quantity;
+        if (existingRow) {
+            // Si el producto ya existe, actualizar la cantidad
+            existingRow.cells[1].textContent = product.quantity;
+        } else {
+            // Si el producto no existe, agregarlo a la tabla
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            const quantityCell = document.createElement('td');
+            const actionsCell = document.createElement('td');
 
-        // Botón para eliminar producto
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Eliminar';
-        deleteButton.classList.add('delete-button');
-        deleteButton.addEventListener('click', () => {
-            row.remove();
-            removeProductFromStorage(product.name);
-        });
+            nameCell.textContent = product.name;
+            quantityCell.textContent = product.quantity;
 
-        actionsCell.appendChild(deleteButton);
-        row.appendChild(nameCell);
-        row.appendChild(quantityCell);
-        row.appendChild(actionsCell);
+            // Botón para eliminar producto
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Eliminar';
+            deleteButton.classList.add('delete-button');
+            deleteButton.addEventListener('click', () => {
+                row.remove();
+                removeProductFromStorage(product.name);
+            });
 
-        productTableBody.appendChild(row);
+            actionsCell.appendChild(deleteButton);
+            row.appendChild(nameCell);
+            row.appendChild(quantityCell);
+            row.appendChild(actionsCell);
+
+            productTableBody.appendChild(row);
+        }
     }
 
     // Eliminar producto de localStorage
