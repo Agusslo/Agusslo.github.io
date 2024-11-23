@@ -1,14 +1,14 @@
-/* Reset general */
+/* Reset general para asegurar uniformidad */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Georgia', serif;
 }
 
 /* Body y estructura principal */
 body {
-  background: #f4f7f6;
+  background: #f8f9fa;
   color: #333;
   display: flex;
   justify-content: center;
@@ -16,13 +16,18 @@ body {
   height: 100vh;
   flex-direction: column;
   padding: 20px;
+  font-size: 1rem;
 }
 
+/* Contenedor principal */
 .container {
   width: 100%;
   max-width: 1200px;
   padding: 20px;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 15px;
 }
 
 /* Estilo de la lista de productos */
@@ -37,69 +42,66 @@ ul.product-list {
 
 ul.product-list li {
   background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  margin: 10px;
-  width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 15px;
+  width: 260px;
   text-align: left;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 ul.product-list li:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Títulos y encabezados */
-h1, h2 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 2rem;
+h1 {
+  color: #2a2a2a;
+  margin-bottom: 25px;
+  font-size: 2.5rem;
+  font-family: 'Merriweather', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 h2 {
   font-size: 1.5rem;
   color: #777;
+  font-family: 'Merriweather', serif;
 }
 
 /* Estilo de los botones */
 button {
-  background-color: #007bff;
+  background-color: #6c757d;
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 5px;
+  padding: 12px 25px;
+  border-radius: 30px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #5a6268;
+  transform: scale(1.05);
 }
 
 button:focus {
   outline: none;
 }
 
-/* Estilo del formulario */
-form {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-  margin: 20px 0;
-}
-
+/* Estilo de los inputs */
 input[type="text"] {
   width: 100%;
   padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  margin-bottom: 20px;
+  border-radius: 10px;
   border: 1px solid #ccc;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  transition: border-color 0.3s;
 }
 
 input[type="text"]:focus {
@@ -107,10 +109,26 @@ input[type="text"]:focus {
   outline: none;
 }
 
+/* Formulario */
+form {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+  transition: transform 0.3s ease;
+}
+
 /* Media Queries para dispositivos móviles */
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 10px;
   }
 
   ul.product-list {
@@ -119,6 +137,27 @@ input[type="text"]:focus {
   }
 
   ul.product-list li {
-    width: 80%;
+    width: 90%;
   }
+
+  form {
+    padding: 20px;
+  }
+}
+
+/* Animaciones para los botones */
+@keyframes buttonAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+button {
+  animation: buttonAnimation 0.5s ease-in-out infinite;
 }
