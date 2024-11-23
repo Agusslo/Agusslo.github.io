@@ -1,200 +1,130 @@
-/* Reset de estilos básicos */
+/* styles.css */
+
+/* Reset de márgenes y paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fondo general */
+/* Estilos base */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
-    display: flex;
-    justify-content: center;  /* Centrado horizontal */
-    align-items: flex-start;  /* Centrado vertical arriba */
-    height: 100vh;
-    padding: 20px;
-    overflow-x: hidden; /* Evita que la página se desborde horizontalmente */
-}
-
-/* Contenedor principal */
-.container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
-    border: 1px solid #ddd;
-    text-align: center; /* Centrado de texto */
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Espaciado entre elementos */
-    max-height: 80vh;  /* Limitar la altura */
-    overflow: auto;  /* Desplazamiento si es necesario */
+    align-items: center;
+    padding: 20px;
 }
 
-/* Título */
 h1 {
-    font-size: 2rem;
-    color: #007bff;
-    letter-spacing: 2px;
-    font-weight: 600;
-    margin-left: 30px; /* Separación a la izquierda */
-    margin-bottom: 50px; /* Mayor separación debajo del título */
-    text-align: left; /* Opcional: Alinear el texto a la izquierda */
+    color: #333;
+    margin-bottom: 20px;
 }
 
-/* Estilo para el formulario */
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: center;  /* Centrado de los elementos dentro del formulario */
+    align-items: center;
+    background-color: #ffffff;
     padding: 20px;
-    background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;  /* Asegura que ocupe el ancho completo */
-}
-
-/* Inputs */
-input[type="text"], input[type="number"] {
-    background: #f9f9f9;
-    border: 2px solid #ddd;
-    padding: 12px;
-    font-size: 1rem;
-    color: #333;
-    border-radius: 8px;
-    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
     max-width: 400px;
-    transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
-input[type="text"]:focus, input[type="number"]:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+form input, form button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
 }
 
-/* Botón de agregar */
-button[type="submit"] {
-    background-color: #007bff;
-    color: white;
+form button {
+    background-color: #28a745;
+    color: #fff;
     border: none;
-    padding: 12px;
-    font-size: 1.2rem;
-    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    width: 80%;
-    max-width: 400px;
-    margin-top: 15px;
+    transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+form button:hover {
+    background-color: #218838;
 }
 
-/* Tabla de productos */
+h2 {
+    color: #333;
+    margin: 20px 0 10px;
+}
+
+.table-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 400px; /* Ajusta esto según el tamaño deseado */
+    overflow-x: hidden;
+}
+
 table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
-    max-height: 300px;  /* Limitar la altura de la tabla */
-    overflow-y: auto;  /* Solo scroll vertical */
-    overflow-x: hidden;  /* Eliminar scroll horizontal */
-    display: block; /* Necesario para forzar el scroll vertical */
-    margin-bottom: 20px; /* Espacio debajo de la tabla */
 }
 
-/* Estilo de las celdas */
 th, td {
-    padding: 15px;
-    text-align: center;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-/* Fondo de las celdas del encabezado */
-th {
-    background-color: #f7f7f7;
-    color: #007bff;
-    font-weight: bold;
-    border-bottom: 2px solid #ddd;
-}
-
-/* Fondo de las celdas del cuerpo */
-td {
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-}
-
-td button {
-    background-color: #dc3545;
-    border: none;
     padding: 10px;
-    font-size: 1rem;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    text-align: left;
 }
 
-td button:hover {
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+button.eliminar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button.eliminar:hover {
     background-color: #c82333;
 }
 
-/* Efecto hover sobre las filas de la tabla */
-tr:hover {
-    background-color: #f1f1f1;
-    transform: scale(1.02);
-}
-
-/* Habilitar scroll solo si hay más de 6 productos */
-table {
-    display: block;
-    max-height: 300px;
-    overflow-y: auto;  /* Desplazamiento vertical */
-    overflow-x: hidden;  /* Eliminar scroll horizontal */
-}
-
-/* Animación de aparición suave */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-tr {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Responsividad */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
+    body {
+        padding: 10px;
     }
 
-    h1 {
-        font-size: 1.8rem;
+    form {
+        padding: 15px;
     }
 
-    input[type="text"], input[type="number"], button[type="submit"] {
-        font-size: 1rem;
-        padding: 12px;
+    form input, form button {
+        width: 100%;
+        max-width: none;
     }
 
-    table {
-        font-size: 1rem;
+    .table-container {
+        max-width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
     }
 }
