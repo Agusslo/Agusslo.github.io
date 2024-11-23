@@ -1,4 +1,4 @@
-/* Reset general para asegurar uniformidad */
+/* Reset general */
 * {
   margin: 0;
   padding: 0;
@@ -6,17 +6,17 @@
   font-family: 'Georgia', serif;
 }
 
-/* Body y estructura principal */
+/* Body */
 body {
   background: #f4f6f7;
   color: #333;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
   padding: 20px;
   font-size: 1rem;
+  flex-direction: column;
 }
 
 /* Contenedor principal */
@@ -30,7 +30,7 @@ body {
   border-radius: 15px;
 }
 
-/* Estilo de la lista de productos */
+/* Lista de productos */
 ul.product-list {
   list-style-type: none;
   padding: 0;
@@ -39,15 +39,15 @@ ul.product-list {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  max-height: 300px; /* Limitar el alto */
-  overflow-y: auto; /* Barra de desplazamiento en Y */
+  max-height: 300px; /* Limitar el alto de la lista */
+  overflow-y: scroll; /* Habilitar scroll */
   margin-top: 20px;
+  width: 100%;
   border-radius: 10px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
 }
 
-/* Limitar la altura de la lista a 6 productos */
+/* Cada item en la lista */
 ul.product-list li {
   background-color: #ffffff;
   border-radius: 15px;
@@ -56,47 +56,49 @@ ul.product-list li {
   margin: 10px;
   width: 90%;
   text-align: left;
-  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Lento */
+  transition: transform 0.8s ease, box-shadow 0.8s ease; /* Animación más lenta */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 100%; /* Evitar que los productos se desborden */
 }
 
-/* Efecto hover más suave y lento */
+/* Efecto hover más lento */
 ul.product-list li:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Botones con colores más bonitos */
+/* Botones */
 button {
-  background-color: #28a745; /* Botón verde */
+  background-color: #007bff; /* Botón azul */
   color: white;
   border: none;
   padding: 12px 24px;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 1.1rem;
-  transition: background-color 0.5s, transform 0.3s ease; /* Lento */
+  font-size: 1.2rem;
+  transition: background-color 1s, transform 0.5s ease; /* Animación más lenta */
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-  background-color: #218838; /* Cambio de color a verde más oscuro */
-  transform: scale(1.05);
+  background-color: #0056b3; /* Cambio a azul más oscuro */
+  transform: scale(1.1); /* Efecto de escalado suave */
 }
 
-/* Botón eliminar con otro color */
+/* Botón eliminar */
 button.delete {
   background-color: #dc3545; /* Botón rojo */
 }
 
 button.delete:hover {
-  background-color: #c82333; /* Cambio de color a rojo más oscuro */
+  background-color: #c82333; /* Cambio a rojo más oscuro */
+  transform: scale(1.1); /* Efecto de escalado suave */
 }
 
-/* Títulos y encabezados */
+/* Títulos */
 h1 {
   color: #333;
   margin-bottom: 25px;
@@ -112,7 +114,7 @@ h2 {
   font-family: 'Merriweather', serif;
 }
 
-/* Estilo de los inputs */
+/* Inputs */
 input[type="text"] {
   width: 100%;
   padding: 12px;
@@ -140,7 +142,7 @@ form {
   transition: transform 0.3s ease;
 }
 
-/* Media Queries para dispositivos móviles */
+/* Media Queries */
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
