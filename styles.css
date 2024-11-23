@@ -17,6 +17,8 @@ body {
   padding: 20px;
   font-size: 1rem;
   flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
 /* Contenedor principal */
@@ -28,6 +30,10 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   border-radius: 15px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Lista de productos */
@@ -45,6 +51,8 @@ ul.product-list {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Alinear texto a la izquierda en la lista */
+  padding: 10px;
 }
 
 /* Cada item en la lista */
@@ -108,13 +116,15 @@ h1 {
   letter-spacing: 2px;
 }
 
+/* Títulos de la tabla */
 h2 {
   font-size: 1.5rem;
   color: #777;
   font-family: 'Merriweather', serif;
+  margin-top: 15px;
 }
 
-/* Inputs */
+/* Input de texto */
 input[type="text"] {
   width: 100%;
   padding: 12px;
@@ -140,6 +150,11 @@ form {
   max-width: 600px;
   margin: 20px 0;
   transition: transform 0.3s ease;
+}
+
+/* Separación de columnas en la tabla */
+ul.product-list li span {
+  margin-right: 20px; /* Separar Producto y Cantidad */
 }
 
 /* Media Queries */
