@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar productos desde localStorage y mostrarlos en la tabla
     function loadProducts() {
         const products = JSON.parse(localStorage.getItem('products')) || [];
+        console.log('Productos cargados:', products);
         productTableBody.innerHTML = ''; // Limpiar el contenido previo
         products.forEach(product => addProductToTable(product));
     }
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             products.push(product);
         }
 
+        console.log('Productos guardados:', products);
         localStorage.setItem('products', JSON.stringify(products));
     }
 
@@ -55,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function removeProductFromStorage(productName) {
         let products = JSON.parse(localStorage.getItem('products')) || [];
         products = products.filter(product => product.name.toLowerCase() !== productName.toLowerCase());
+        console.log('Productos después de eliminar:', products);
         localStorage.setItem('products', JSON.stringify(products));
     }
 
@@ -67,12 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (productName && !isNaN(productQuantity) && productQuantity > 0) {
             const product = { name: productName, quantity: productQuantity };
+            console.log('Producto agregado:', product);
             addProductToTable(product);
             saveProduct(product);
 
             // Limpiar los campos del formulario
             productNameInput.value = '';
             productQuantityInput.value = '';
+        } else {
+            console.log('Datos inválidos. No se puede agregar el producto.');
         }
     });
 
