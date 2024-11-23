@@ -1,13 +1,11 @@
 /* styles.css */
 
-/* Reset de márgenes y paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilos base */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
