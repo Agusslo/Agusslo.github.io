@@ -62,12 +62,10 @@ h2 {
 .table-container {
     width: 100%;
     max-width: 600px;
+    overflow-y: auto;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    max-height: 400px; /* Ajusta esto según el tamaño deseado */
-    overflow-x: hidden;
 }
 
 table {
