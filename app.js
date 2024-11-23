@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar productos desde localStorage y mostrarlos en la tabla
     function loadProducts() {
         const products = JSON.parse(localStorage.getItem('products')) || [];
+        productTableBody.innerHTML = ''; // Limpiar el contenido previo
         products.forEach(product => addProductToTable(product));
     }
 
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Botón para eliminar producto
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Eliminar';
-            deleteButton.classList.add('delete-button');
+            deleteButton.classList.add('eliminar');
             deleteButton.addEventListener('click', () => {
                 row.remove();
                 removeProductFromStorage(product.name);
