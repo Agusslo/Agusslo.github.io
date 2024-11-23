@@ -14,15 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Guardar o actualizar el producto en localStorage
     function saveProduct(product) {
         let products = JSON.parse(localStorage.getItem('products')) || [];
-
-        // Verificar si el producto ya existe
         const existingProductIndex = products.findIndex(p => p.name.toLowerCase() === product.name.toLowerCase());
 
         if (existingProductIndex !== -1) {
-            // Si el producto existe, reemplazar el producto por completo (no solo la cantidad)
-            products[existingProductIndex] = product;
+            products[existingProductIndex].quantity += product.quantity;
         } else {
-            // Si el producto no existe, agregarlo
             products.push(product);
         }
 
@@ -31,38 +27,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Agregar producto a la tabla
     function addProductToTable(product) {
-        // Verificar si el producto ya existe en la tabla antes de agregarlo
-        const existingRow = [...productTableBody.rows].find(row => row.cells[0].textContent.toLowerCase() === product.name.toLowerCase());
+        const row = document.createElement('tr');
+        const nameCell = document.createElement('td');
+        const quantityCell = document.createElement('td');
+        const actionsCell = document.createElement('td');
 
-        if (existingRow) {
-            // Si el producto ya existe, actualizar la cantidad
-            existingRow.cells[1].textContent = product.quantity;
-        } else {
-            // Si el producto no existe, agregarlo a la tabla
-            const row = document.createElement('tr');
-            const nameCell = document.createElement('td');
-            const quantityCell = document.createElement('td');
-            const actionsCell = document.createElement('td');
+        nameCell.textContent = product.name;
+        quantityCell.textContent = product.quantity;
 
-            nameCell.textContent = product.name;
-            quantityCell.textContent = product.quantity;
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Eliminar';
+        deleteButton.classList.add('eliminar');
+        deleteButton.addEventListener('click', () => {
+            row.remove();
+            removeProductFromStorage(product.name);
+        });
 
-            // Botón para eliminar producto
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Eliminar';
-            deleteButton.classList.add('eliminar');
-            deleteButton.addEventListener('click', () => {
-                row.remove();
-                removeProductFromStorage(product.name);
-            });
+        actionsCell.appendChild(deleteButton);
+        row.appendChild(nameCell);
+        row.appendChild(quantityCell);
+        row.appendChild(actionsCell);
 
-            actionsCell.appendChild(deleteButton);
-            row.appendChild(nameCell);
-            row.appendChild(quantityCell);
-            row.appendChild(actionsCell);
-
-            productTableBody.appendChild(row);
-        }
+        productTableBody.appendChild(row);
     }
 
     // Eliminar producto de localStorage
@@ -79,13 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const productName = productNameInput.value.trim();
         let productQuantity = parseInt(productQuantityInput.value.trim());
 
-        // Validar que la cantidad no sea negativa
-        if (productQuantity < 0) {
-            alert("La cantidad no puede ser negativa.");
-            return;
-        }
-
-        if (productName && !isNaN(productQuantity)) {
+        if (productName && !isNaN(productQuantity) && productQuantity > 0) {
             const product = { name: productName, quantity: productQuantity };
             addProductToTable(product);
             saveProduct(product);
